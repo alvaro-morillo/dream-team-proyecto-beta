@@ -1,3 +1,4 @@
+import React from 'react';
 import './Calculadora.css';
 
 const Calculadora = () => {
@@ -65,4 +66,4 @@ const Calculadora = () => {
   );
 };
 
-export default Calculadora;
+export default Calculadora;

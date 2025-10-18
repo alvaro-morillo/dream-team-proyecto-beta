@@ -1,4 +1,5 @@
-import Calculadora from "./componentes/Calculadora"
+import Calculadora from "./componentes/Calculadora";
+
 
 const App = () => {
   return (
