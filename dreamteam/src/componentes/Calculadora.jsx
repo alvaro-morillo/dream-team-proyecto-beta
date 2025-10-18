@@ -1,4 +1,5 @@
 import React from 'react';
+import TipCalculator from './TipCalculator';
 import './Calculadora.css';
 
 const Calculadora = () => {
