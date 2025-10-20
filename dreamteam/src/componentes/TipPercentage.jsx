@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 const TipPercentage = ({ value, onChange }) => {
-  const percentage = [5, 10, 15, 20, 25];
+  const percentages = [5, 10, 15, 20, 25];
   const [isCustom, setIsCustom] = useState(false);
   const [customTip, setCustomTip] = useState("");
 
@@ -29,7 +29,7 @@ const TipPercentage = ({ value, onChange }) => {
     <div>
       <p>Porcentaje de propina:</p>
       <ul>
-        {percentage.map((percent) => (
+        {percentages.map((percent) => (
           <li 
             key={percent} 
             onClick={() => handlePredefinedTip(percent)}
@@ -48,6 +48,9 @@ const TipPercentage = ({ value, onChange }) => {
         />
         %
       </div>
+      
+      {/* ✅ Este es el único div adicional necesario */}
+      <div>
         {isCustom ? `Personalizado: ${value}%` : `Predefinido: ${value}%`}
       </div>
     </div>
