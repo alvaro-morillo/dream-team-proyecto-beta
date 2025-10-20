@@ -1,4 +1,4 @@
-import Calculadora from "./componentes/Calculadora";
+
 import TipCalculator from "./componentes/TipCalculator";
 
 

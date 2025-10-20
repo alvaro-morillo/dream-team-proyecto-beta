@@ -7,6 +7,7 @@ import TipPercentage from "./TipPercentage"
 export default function TipCalculator(){
 
     const [bill,setBill]= useState(0);
+    const [tip, setTip] = useState(0);
 
     return(
         <div className="calculator">
@@ -14,6 +15,7 @@ export default function TipCalculator(){
 
              // enviando los props al componente hijo
              <BillInput value={bill} onChange={setBill}/> 
+             <TipPercentage value={tip} onChange={setTip} />
         </div>
     )
 }
