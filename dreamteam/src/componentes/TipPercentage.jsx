@@ -55,7 +55,7 @@ const TipPercentage = ({value,onChange}) => {
         </div>
       </div>
       <div style={{ fontSize: "12px", color: "gray", marginTop: "10px" }}>
-        {isCustom ? Personalizado: ${value}% : Predefinido: ${value}%}
+        {isCustom ? `Personalizado: ${value}%` : `Predefinido: ${value}%`}
       </div>
     </div>
   );
