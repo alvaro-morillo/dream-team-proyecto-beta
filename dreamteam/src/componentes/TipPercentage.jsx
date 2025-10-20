@@ -1,61 +1,56 @@
 import React, { useState } from "react";
 
-const TipPercentage = ({value,onChange}) => {
+const TipPercentage = ({ value, onChange }) => {
   const percentage = [5, 10, 15, 20, 25];
-  const [isCustom, setIsCuston] = useState(false);
-  const [customTip, setCustonTip] = useState("");
+  const [isCustom, setIsCustom] = useState(false);
+  const [customTip, setCustomTip] = useState("");
 
   const handleCustomTipChange = (e) => {
     const inputValue = e.target.value;
 
-    setCustonTip(inputValue);
+    setCustomTip(inputValue);
 
-    if (inputValue != "") {
+    if (inputValue !== "") {
       onChange(Number(inputValue));
-      setIsCuston = true; // marcamos que es personalizado
+      setIsCustom(true); // marcamos que es personalizado
     } else {
-      isCustom = false;
+      setIsCustom(false);
       onChange(10); // Vuelve al valor por defecto
     }
   };
 
   const handlePredefinedTip = (percent) => {
     onChange(percent);
-    setCustonTip(""); // Limpiamos el input personalizado
-    setIsCuston(false); // Marcamos que no es personalizado
+    setCustomTip(""); // Limpiamos el input personalizado
+    setIsCustom(false); // Marcamos que no es personalizado
   };
-
 
   return (
     <div>
-      <label>Porcentaje de propina:</label>
-      <div className="percentage-buttons">
+      <p>Porcentaje de propina:</p>
+      <ul>
         {percentage.map((percent) => (
-          <button
-            type="button"
-            key={percent}
-            className={value === percent && !isCustom ? "active" : ""}
+          <li 
+            key={percent} 
             onClick={() => handlePredefinedTip(percent)}
           >
             {percent}%
-          </button>
+          </li>
         ))}
+      </ul>
 
-        <div className="custom-tip">
-          <input
-            type="number"
-            min="0"
-            max="100"
-            value={customTip}
-            onChange={handleCustomTipChange}
-            placeholder="Personalizado"
-            className={isCustom ? "active" : ""}
-          />
-          <span>%</span>
-        </div>
+      <div>
+        <input
+          type="number"
+          placeholder="Personalizado"
+          value={customTip}
+          onChange={handleCustomTipChange}
+        />
+        %
       </div>
-      <div style={{ fontSize: "12px", color: "gray", marginTop: "10px" }}>
-        {isCustom ? Personalizado: ${value}% : Predefinido: ${value}%}
+
+      <div>
+        {isCustom ? `Personalizado: ${value}%` : `Predefinido: ${value}%`}
       </div>
     </div>
   );
