@@ -9,9 +9,13 @@ const TipCalculator = () => {
   const [tipPercentage, setTipPercentage] = useState(10);
   const [peopleCounter, setPeopleCounter] = useState(1);
 
+
+
+
   const calculateResults = () => {
     // Convierte bill a número, si está vacío usa 0
     const billAmount = bill === "" ? 0 : parseFloat(bill) || 0;
+
 
     if (billAmount <= 0 || peopleCounter <= 0) {
       return {
@@ -25,6 +29,8 @@ const TipCalculator = () => {
     const totalWithTip = billAmount + tipAmount;
     const tipPerPerson = tipAmount / peopleCounter;
     const totalPerPerson = totalWithTip / peopleCounter;
+
+
 
     return {
       tipAmount: Number(tipAmount) || 0,
@@ -47,3 +53,4 @@ const TipCalculator = () => {
 };
 
 export default TipCalculator;
+ 
