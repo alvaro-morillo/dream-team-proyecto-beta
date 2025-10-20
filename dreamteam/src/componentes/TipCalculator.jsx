@@ -1,19 +1,23 @@
-import { useState } from "react";
-import BillInput from "./BillInput"
-import PeopleCounter from "./PeopleCounter"
-import ResultDisplay from "./ResultDisplay"
-import TipPercentage from "./TipPercentage"
+import React, { useState } from "react";
+import BillInput from "./BillInput";
+import TipPercentage from "./TipPercentage";
+import PeopleCounter from "./PeopleCounter";
+import ResultDisplay from "./ResultDisplay";
 
-export default function TipCalculator(){
+const TipCalculator = () => {
+  const [bill, setBill] = useState("");
+  const [tipPercentage, setTipPercentage] = useState(10);
+  const [peopleCounter, setPeopleCounter] = useState(1);
 
-    const [bill,setBill]= useState(0);
-
-    return(
-        <div className="calculator">
-             <h1>Calculadora de Propinas</h1>
-
-             // enviando los props al componente hijo
-             <BillInput value={bill} onChange={setBill}/> 
-        </div>
-    )
-}
+  const calculateResults = () => {
+    // Convierte bill a número, si está vacío usa 0
+    const billAmount = bill === "" ? 0 : parseFloat(bill) || 0;
+    
+    if(billAmount <= 0 || peopleCounter <= 0){
+      return{
+        tipAmount: 0,
+        totalWithTip: 0,
+        tipPerPerson: 0,
+        totalPerPerson: 0
+      };
+    };
