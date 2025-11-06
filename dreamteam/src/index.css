@@ -24,11 +24,12 @@ a:hover {
 
 body {
   margin: 0;
-  display: flex;
-  place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  display: block; /* 🔸 en vez de flex */
+  place-items: unset; /* o simplemente lo eliminás */
 }
+
 
 h1 {
   font-size: 3.2em;
@@ -66,3 +67,21 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+.tip-buttons button {
+  margin-right: 8px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  background: #eee;
+}
+.tip-buttons button.selected {
+  background: #2b6cb0;
+  color: white;
+}
+.tip-percentage input {
+  margin-top: 8px;
+  padding: 6px 8px;
+  width: 100px;
+}
+
